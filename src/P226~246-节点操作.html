@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="box">
+    <div>
+        <span class="erweima">二维码</span>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    
+    <div class="bro_jd">兄节点</div>
+    <span>弟节点</span>
+
+    <script>
+        /* 利用节点层级关系获取元素更有逻辑性，但兼容性稍差 */
+        /* DOM中所有东西都是节点node，
+        主要分为：元素节点：nodeType = 1
+                属性节点：nodeType = 2
+                文本节点：nodeType = 3（文字、空格、换行）
+        开发过程中主要操作元素节点 */
+        /* 获取节点 */
+        /* 获取父级节点 */
+        var erweima = document.querySelector('.erweima');
+        console.log(erweima.parentNode);
+        /* 获取子级节点 */
+        var firstul = document.querySelector('ul');
+        console.log(firstul.childNodes);//返回里包括文本节点
+        console.log(firstul.children);//返回只包含元素节点，是个只读属性。开发时主要用这个。
+        console.log(firstul.firstChild);//返回第一个节点 包括文本节点
+        console.log(firstul.lastChild);//返回最后一个节点 包括文本节点
+        console.log(firstul.firstElementChild);//返回第一个元素节点,ie9以上才支持
+        console.log(firstul.lastElementChild);//返回最后一个元素节点,ie9以上才支持
+        console.log(firstul.children[0]);//兼容性好
+        console.log(firstul.children[firstul.children.length - 1]);//兼容性好
+        /* 获取兄弟节点 */
+        var bro_jd = document.querySelector('.bro_jd');
+        console.log(bro_jd.nextSibling);//返回下一个兄弟节点 包括文本节点
+        console.log(bro_jd.previousSibling);//返回上一个兄弟节点 包括文本节点
+        console.log(bro_jd.nextElementSibling);//返回下一个元素节点，ie9以上才支持
+        console.log(bro_jd.previousElementSibling);//返回上一个元素节点,ie9以上才支持
+        function getNextElementSibling(element) {
+            var el = element;
+            while (el = el.nextSibling) {
+                if(el.nodeType === 1) {
+                    return el;
+                }
+            }
+            return null;
+        }//解决兼容性问题
+
+        /* 创建节点：1.新增节点 2.添加节点*/
+        var li1 = document.createElement('li');//1.新增
+        var ul = document.querySelector('ul');
+        ul.appendChild(li1);//2.在最后节点后添加
+        var li2 = document.createElement('li');
+        ul.insertBefore(li2, ul.children[0]);//在第一个节点前增加一个li
+
+        /* 删除节点 */
+        ul.removeChild(ul.children[0]);
+
+        /* 复制节点 */
+        var linode1 = ul.children[0].cloneNode();//()里为空或者false，只复制元素标签
+        ul.appendChild(linode1);
+        var linode2 = ul.children[0].cloneNode(true);//()为true，全都复制过来
+        ul.insertBefore(linode2, ul.children[0]);
+
+        /* 三种创建元素的方式 */
+        /* 1.document.write */
+        document.write('<div>123</div>');//缺点：会导致页面重载，所以一般不用
+        /* 2.innerHTML */
+        // ul.innerHTML = '<li>123</li>';
+        /* 3.creatElement */
+        var newli = document.createElement('li');
+        ul.appendChild(newli);
+        /* Tips:
+        innerHTML和createElement的区别：
+        如果innerHTML是拼接字符串进行新建元素会开辟大量空间，会很慢。
+        但它如果是以拼接成数组，效率是最高的，结构稍复杂。
+        createElement创建多个元素效率稍低一些，但是结构更清晰 */
+    </script>
+</body>
+</html>

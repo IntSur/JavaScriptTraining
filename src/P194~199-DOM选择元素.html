@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="timer">2019-2-2</div>
+    <ul>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+    <ol id="ol">
+        <li>1234</li>
+        <li>1234</li>
+        <li>1234</li>
+        <li>1234</li>
+        <li>1234</li>
+    </ol>
+    <div class="democlass">democlass</div>
+    <script>
+        /* 用DOM选择元素的几种方法 */
+        /* 1.通过ID选择 getElementById */
+        console.log(document.getElementById('timer'));// 返回的是元素对象
+        console.dir(document.getElementById('timer'));// console.dir打印元素对象，能看到属性和方法
+        /* 2.通过标签选择 getElementsByTagName */
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);// 返回的是对象的集合 不管获取的是0个对象还是多个对象 返回的都是伪数组
+        console.log(lis[0]);//返回数组里第一个元素 返回的是对象
+            /* 先获取父元素，再获取子元素:element.getElementByTagName 
+            element必须是对象，不能是伪数组 */
+            var olIndex1 = document.getElementsByTagName('ol');
+            console.log((olIndex1[0].getElementsByTagName('li')));
+            /* 常用方法：直接通过ID获取父元素 */
+            var olIndex2 = document.getElementById('ol');
+            console.log(olIndex2.getElementsByTagName('li'));
+        /* 3.通过类名选择 getElementsByClassName */
+        console.log(document.getElementsByClassName('democlass'));//返回的是对象的集合
+        /* 4.主流写法：querySelector H5开始支持的 */
+        console.log(document.querySelector('.democlass'));// 通过类名选择 只返回第一个对应的对象
+        console.log(document.querySelector('#ol'));// 通过id选择
+        console.log(document.querySelector('li'));// 通过标签选择
+        console.log(document.querySelectorAll('li'));// 返回所欲对应的对象集合
+        /* 5.选择特殊元素:body html */
+        console.log(document.body);// 获取body
+        console.log(document.documentElement);// 获取html
+    </script>
+</body>
+</html>

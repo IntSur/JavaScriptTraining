@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* Tips：局部作用域内直接赋值的变量也是全局变量 */
+        function fn() {
+            num1 = 1;
+        }
+        fn()
+        console.log(num1);
+        /* 局部变量相对节约内存资源，函数结束时就会释放内存*/
+        /* js在es6后加入块级作用域，块级作用域：if{} for{} */
+        /* 作用域链：js中局部函数可以访问外层函数的变量，访问规则就按照作用域链的嵌套关系，
+        一层层往上找，用最近的那个。 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

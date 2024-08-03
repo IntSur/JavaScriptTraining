@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转到百度</button>
+    <button>前进</button>
+    <button>后退</button>
+    <button>前往</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        btns[0].addEventListener('click', function() {
+            location.href = 'https://www.tesla.com';
+        })
+
+        /* history.forward()：前进一个页面，模拟浏览器左上角*/
+        btns[1].addEventListener('click', function() {
+            history.forward();
+        })
+
+        /* history.back()：后退一个页面，模拟浏览器左上角*/
+        btns[2].addEventListener('click', function() {
+            history.back();
+        })
+        
+        /* history.go()：前往页面，参数为正往前，为负往后*/
+        btns[3].addEventListener('click', function() {
+            history.go(1);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* BOM:Browser Object Model 浏览器对象模型，是由浏览器厂商自定的。
+        具体介绍看PPT
+        DOM：顶级对象是document
+        BOM：顶级对象是window
+        定义在全局作用域中的变量、函数都会变成window对象的属性和方法
+        window.name是个特殊的属性*/
+        console.log(window);
+
+        /* BOM事件类型:页面加载 */
+        /* window.onload()：让DOM content、css、flash等图片先加载完，再执行体内代码。
+        由于这个是传统写法，所以和DOM对象的传统新型写法的区别一样：当多个onload执行时，只执行最后一个onload。*/
+        window.onload = function() {
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click', function() {
+                console.log('btn1 clicked1');
+            })
+            btn1.addEventListener('click', function() {
+                console.log('btn1 clicked2');
+            })
+        }
+        window.onload = function() {
+            var btn1 = document.querySelector('button');
+            btn1.addEventListener('click', function() {
+                console.log('btn1 clicked1');
+            })
+        }/* 只执行第二个onload里的动作 */
+        /*  window.addEventListener('load') */
+        window.addEventListener('load', function() {
+            console.log('windowloaded1');
+        })
+        window.addEventListener('load', function() {
+            console.log('windowloaded2');
+        })
+        /* window.addEventListener('DOMContentLoaded',)：只执行DOM content 不加载图片等信息。
+        专用于包含图片较多的网站 */
+        window.addEventListener('DOMContentLoaded', function(){})
+
+        /* BOM事件类型:浏览器窗口大小 */
+        /* 多用于响应式页面 */
+        window.addEventListener('resize', function() {
+            var div1 = document.querySelector('div');
+            console.log(window.innerWidth);
+            if(window.innerWidth <= 600) {
+                div1.style.display = "none";
+            } else {
+                div1.style.display = "block";
+            }
+        })
+    </script>
+    <div style="width: 20px;height: 20px;background-color: #999;"></div>
+    <button>按钮1</button>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 100px;
+            height: 100px;
+            margin: 60px;
+            background-color: blueviolet;
+            position: relative;
+        }
+        .son {
+            width: 50px;
+            height: 50px;
+            margin: 60px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    
+    <script>
+        var div1 = document.querySelector('.father');
+        console.log(div1.offsetTop);// offsetTop:相对具有定位的父级元素的上方偏移
+        console.log(div1.offsetLeft);// offsetLeft:相对具有定位的父级元素的左边框偏移
+        console.log(div1.offsetWidth);// offsetWidth:width + padding + border
+        console.log(div1.offsetHeight);// offsetHeight:height + padding + border
+
+        var div2 = document.querySelector('.son');
+        console.log(div2.offsetParent);// 返回相对具有定位的父级元素
+        console.log(div2.offsetTop);// offsetTop:相对具有定位的父级元素的上方偏移
+        console.log(div2.offsetLeft);// offsetLeft:相对具有定位的父级元素的左边框偏移
+        console.log(div2.offsetWidth);// offsetWidth:width + padding + border
+        console.log(div2.offsetHeight);// offsetHeight:height + padding + border
+        
+        /* offset和style的区别：详见ppt */
+        /* offset是只读属性 */
+    </script>
+</body>
+</html>

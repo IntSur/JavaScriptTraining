@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="fastclick.js"></script>
+</head>
+<body>
+    <button>click</button>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function() {
+                FastClick.attach(document.body);
+            }, false);
+        }        
+        var btn1 = document.querySelector('button');
+        btn1.addEventListener('click', function () {
+            console.log('11');
+        })
+    </script>
+</body>
+</html>

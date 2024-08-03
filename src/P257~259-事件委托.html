@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 4000px;;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>事件委托1</li>
+        <li>事件委托2</li>
+        <li>事件委托3</li>
+        <li>事件委托4</li>
+        <li>事件委托5</li>
+        <li>事件委托6</li>
+    </ul>
+    <script>
+        /* 事件委托(代理,委派):只监听父元素,利用子元素冒泡来更改子元素效果.
+        事件委托的好处:节省性能资源.(以上例子,相比于循环监听每个li,只监听ul就能实现了,) */
+        var ul1 = document.querySelector('ul');
+        ul1.addEventListener('click', function fn(e) {
+            e.target.style.backgroundColor = '#ccc';
+        })
+        
+        /* 禁用鼠标右键菜单弹出:contentmenu */
+        document.addEventListener('contextmenu', function(e){
+            e.preventDefault();
+        })
+        /* 禁用选中文字:selectstart */
+        document.addEventListener('selectstart', function(e){
+            e.preventDefault();
+        })
+
+        /* 获取鼠标坐标 */
+        document.addEventListener('click', function(e){
+            /* 网页可视区 */
+            console.log(e.clientX);
+            console.log(e.clientY);
+            console.log('---------------');
+            /* 整个页面 */
+            console.log(e.pageX);
+            console.log(e.pageY);
+            console.log('---------------');
+            /* 整个电脑屏幕 */
+            console.log(e.screenX);
+            console.log(e.screenY);
+        })
+    </script>
+</body>
+</html>

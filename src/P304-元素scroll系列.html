@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 150px;
+            height: 150px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容文本内容</div>
+    <script>
+        var div1 = document.querySelector('div');
+        console.log(div1.scrollHeight);// scrollHeight = padding + height,与client系列的区别在于：它会加上溢出页面。
+        console.log(div1.scrollWidth);// scrollWidth = padding + width,与client系列的区别在于：它会加上溢出页面。
+        div1.addEventListener('scroll', function () {
+            console.log(this.scrollTop);// scrollTop = 滚动滑轮后，上边框到溢出文本上沿的距离。
+            console.log(this.scrollLeft);// scrollLeft = 滚动滑轮后，左边框到溢出文本左沿的距离。            
+        })
+
+    </script>
+</body>
+</html>

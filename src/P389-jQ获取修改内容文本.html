@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style></style>
+</head>
+<body>
+    <textarea>acacac</textarea>
+    <input type="text" value="123">
+    <script>
+        $(function() {
+            /* 1.html()相当于innerHTML() */
+            console.log($("textarea").html());
+            $("textarea").html("bcbcbcb");
+            console.log($("textarea").html());
+
+            /* 2.text()相当于innerText() */
+            console.log($("textarea").text());
+            $("textarea").text("cscscs");
+            console.log($("textarea").text());
+
+            /* 3.val()相当于value() */
+            console.log($("input").val());
+            $("input").val("456");
+        })
+    </script>
+</body>
+</html>

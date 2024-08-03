@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" data-oemAttribute="oemAttribute1" data-oem-Attribute="oemAttribute2"></div>
+    <script>
+        /* 获取自定义属性 */
+        var div1 = document.querySelector('#div1');
+            // 1.多用于元素自定义属性，兼容性较好
+            console.log(div1.getAttribute('data-oemAttribute'));
+            // 2.H5 ie11才开始支持，他只能获取到'data-'开头的自定义属性
+            //dataset是一个包含了所有'data-'开头自定义属性的集合
+            console.log(div1.dataset);
+            console.log(div1.dataset.oemattribute);
+            console.log(div1.dataset['oemattribute']);
+            //如果自定义属性里有多个用-连接的单词，要用驼峰命名法。
+            console.log(div1.dataset.oemAttribute);
+            console.log(div1.dataset['oemAttribute']);
+
+        /* 设置自定义属性 */
+        div1.setAttribute('data-oemAttribute', 'oemAttribute2');
+        console.log(div1.id);
+        console.log(div1.getAttribute('data-oemAttribute'));
+        
+        /* 移除自定义属性 */
+        div1.removeAttribute('data-oemAttribute');
+        console.log(div1.getAttribute('data-oemAttribute'));// null
+
+        /* 自定义属性目的:是为了保存并使用数据。有些数据可以保存到页面中而不用保存到数据库中。
+        H5为了区分自带属性和自定义属性，自定义属性应该以‘data-’开头 */
+        
+    </script>
+</body>
+</html>

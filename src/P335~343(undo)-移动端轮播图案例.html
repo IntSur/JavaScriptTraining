@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: black;
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div1 = document.querySelector('div');
+
+        var handstartX = null;
+        var handstartY = null;
+        var divstartX = null;
+        var divstartY = null;
+        div1.addEventListener('touchstart', function(e) {
+            handstartX = e.targetTouches[0].pageX;// pagex参考点表示触摸点相对于整个文档页面的 x 坐标位置
+            handstartY = e.targetTouches[0].pageY;// pagey参考点表示触摸点相对于整个文档页面的 y 坐标位置
+            divstartX = this.offsetLeft;
+            divstartY = this.offsetTop;
+        });
+
+        div1.addEventListener('touchmove', function (e) {
+            var moveX = e.targetTouches[0].pageX - handstartX;
+            var moveY = e.targetTouches[0].pageY - handstartY;
+            this.style.left = divstartX + moveX +'px';
+            this.style.top = divstartY + moveY + 'px';
+            e.preventDefault();// 阻止滑动时导致页面被手指滑下
+        });
+
+    </script>
+</body>
+</html>

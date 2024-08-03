@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 类型转换
+        // 转换为字符型
+        //1. 变量.toString()
+        var someVar1 = 123;
+        console.log(someVar1.toString());
+        //2. String(变量)
+        var someVar1 = 123;
+        console.log(String(someVar1));
+        //3. 加上一个字符串，隐式转换
+        var someVar1 = 123;
+        console.log(someVar1 + '123');
+
+
+
+        //转换为数字型
+        //1. parseInt()
+        console.log(parseInt('12'));//输出12
+        console.log(parseInt('12px'));//输出12
+        console.log(parseInt('px12px'));//输出nan，首位必须为数字才能转换为数字型
+        //2. parseFloat()
+        console.log(parseFloat('12.56'));//12.56
+        console.log(parseFloat('12.56px'));//输出12.56
+        console.log(parseFloat('px12.56px'));//输出nan，首位必须为数字才能转换为数字型
+        //3. Number()
+        console.log(Number('123'));
+        console.log(Number('123px'));
+        console.log(Number('px123px'));
+        //4. 隐式转换 - * /
+        console.log('123' - 1);
+        console.log('123' - '120');
+        console.log('12' * '12');
+        console.log('12' / '12');
+        //在我们进行算术运算时，JS自动转换了数据类型
+
+        //计算年龄案例
+        var year = prompt('What year u born?');
+        var age = 2023 - parseInt(year);
+        alert('Your age is ' + age);
+
+        //加法器案例
+        var var1 = prompt('First number = ');
+        var var2 = prompt('Second number = ');
+        var var3 = parseFloat(var1) + parseFloat(var2);//需要手动转换为数字型
+        alert('Result = ' + var3);
+
+
+        //转换为布尔型
+        //1. Boolean() ''、0、NaN、null、undefined这五个空值被视为false 其他都被视为true
+        console.log(Boolean(''));
+        console.log(Boolean(null));
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

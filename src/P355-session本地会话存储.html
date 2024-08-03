@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>新增</button>
+    <button>查看</button>
+    <button>删除</button>
+    <button>清除</button>
+    <script>
+        /* sessionStorage生命周期：关闭窗口就没了 */
+        var btns = document.querySelectorAll('button');
+        var data = document.querySelector('input');
+        /* 新增数据:session */
+        btns[0].addEventListener('click', function() {
+            sessionStorage.setItem('username', data.value);
+            sessionStorage.setItem('usernumber', data.value);
+        })
+        
+        /* 查看数据 */
+        btns[1].addEventListener('click', function() {
+            console.log(sessionStorage.getItem('username'));
+        })
+
+        /* 删除一条数据 */
+        btns[2].addEventListener('click', function() {
+            sessionStorage.removeItem('username');
+        })
+
+        /* 清除所有数据 */
+        btns[3].addEventListener('click', function() {
+            sessionStorage.clear();
+        })
+        
+        /* localStorage:同一浏览器下的窗口都能访问到数据 */
+        console.log(localStorage.getItem('username'));
+    </script>
+</body>
+</html>

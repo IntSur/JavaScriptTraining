@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 10px;
+            position: relative;
+        }
+        img {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../../CSS/image/直线 1.png" alt="">
+    </div>
+    <script>
+        var mouse = document.addEventListener('mousemove', function(e){
+            var img1 = document.querySelector('img');
+            img1.style.left = e.clientX + 'px';
+            img1.style.top = e.clientY + 'px';
+            console.log(img1.style.left);
+            console.log(img1.style.top);
+        })
+    </script>
+</body>
+</html>

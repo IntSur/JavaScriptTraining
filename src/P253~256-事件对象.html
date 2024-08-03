@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: #ccc;
+            margin: 50px auto;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <ul>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+    <a href="https://www.tesla.com">tesla</a>
+    <script>
+        /* 事件对象：创建事件时监听器里的实参，如果是事件类型是鼠标，对象则是鼠标，对象参数可以是鼠标的坐标等； 如果是事件类型是键盘，对象则是键盘，对象参数可以是键盘的输入键等。*/
+        var div1 = document.querySelector('div');
+        div1.onclick = function(e) {
+            console.log(e);
+        }
+        div1.addEventListener('click', function fn(e) {
+            console.log(e);
+        });
+
+        /* e.target和this的区别: */
+        var ul1 = document.querySelector('ul');
+        ul1.onclick = function(e) {
+            console.log(e.target);//指向的是触发事件的对象（li）
+            console.log(this);//指向的是绑定对象（ul）
+        }
+        ul1.addEventListener('click', function fn(e) {
+            console.log(e.target);
+            console.log(this);
+        });
+
+        /* 返回事件类型 */
+        var a1 = document.querySelector('a');
+        a1.addEventListener('click', function(e) {
+            e.preventDefault();// 阻止默认行为，但不影响下面代码执行。DOM标准写法
+            console.log(e.type);
+        })
+
+        /* 阻止冒泡 */
+        var li1 = document.querySelector('li');
+        li1.addEventListener('click', function fn(e) {
+            e.stopPropagation();// 只会阻止li冒泡,不会阻止父级元素们冒泡
+            console.log('li冒泡');
+        }, false)/* true标志捕获阶段进行操作 */
+    
+        var ul2 = li1.parentNode;
+        ul2.addEventListener('click', function fn(e) {
+            console.log('ul冒泡');
+        }, false)
+
+        var body1 = ul2.parentNode;
+        body1.addEventListener('click', function fn(e) {
+            console.log('body冒泡');
+        }) 
+
+
+    </script>
+</body>
+</html>

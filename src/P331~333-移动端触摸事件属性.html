@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: #999;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div1 = document.querySelector('div');
+        /* 手指开始触摸 */
+        div1.addEventListener('touchstart', function(e) {
+            console.log('touchstart');
+            console.log(e.touches);// 正在触摸屏幕的手指列表
+            console.log(e.targetTouches);// 正在触摸当前元素的手指列表
+            console.log(e.changedTouches);// 可以检测有没有手指离开进入的列表，可检测从有到无，从无到有。
+        })
+        /* 手指正在触摸 */
+        div1.addEventListener('touchmove', function(e) {
+            console.log('touchmove');
+        })
+        /* 手指停止触摸 */
+        div1.addEventListener('touchend', function(e) {
+            console.log('touchend');
+            console.log(e.touches);
+        })
+    </script>
+</body>
+</html>

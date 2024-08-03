@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 200px;
+            flex: 1;
+        }
+        div {
+            width: 610px;
+            margin: 100px auto;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../../CSS/image/model3.jpeg" alt="">
+        <img src="../../CSS/image/hero_iphone15.jpg" alt="">
+        <img src="../../CSS/image/modely.jpeg" alt="">
+    </div>
+    <script>
+        var imgs = document.querySelectorAll('img');
+        for(var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                document.body.style.background = 'no-repeat center center url(' + this.src + ')';
+            }
+        }
+    </script>
+</body>
+</html>

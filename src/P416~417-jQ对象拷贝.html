@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            var targetObj = {
+                number: 18,
+                name: "user1",
+            }
+            var obj = {
+                numer: 20,
+                sonObj: {
+                    power: 100,
+                }
+            }
+            /* 对象拷贝（默认为浅拷贝） */
+            $.extend(targetObj, obj);
+            console.log(targetObj);
+            console.log(obj);
+            /* 对象深拷贝 */
+            $.extend(true, targetObj, obj);
+            /* Tips：
+            浅拷贝：被拷贝的对象复杂数据类型中的地址拷贝给目标对象，修改目标对象会影响被拷贝对象。
+            深拷贝：前面加true， 完全克隆(拷贝的对象,而不是地址)，修改目标对象不会影响被拷贝对象。 */
+
+        })
+    </script>
+</body>
+</html>

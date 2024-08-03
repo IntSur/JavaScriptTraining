@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      position: absolute;
+      left: 30px;
+      width: 100px;
+      height: 25px;
+      background-color: rgb(0, 48, 126);
+      color: aqua;
+    }
+    button {
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button>按钮</button>
+  <div></div>
+  <script>
+    var div1 = document.querySelector('div');
+    var btn1 = document.querySelector('button');
+    
+    function animate(obj, destination, interval) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function() {
+        var turnsslow = Math.ceil((destination - obj.offsetLeft)/50);// Math.ceil消除了left非整数的问题
+        if(obj.offsetLeft >= destination) {
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + turnsslow + 'px';
+      }, interval);
+    }
+
+    btn1.addEventListener('click', function() {
+      animate(div1, 1194, 30);
+    })
+
+  </script>
+</body>
+</html>

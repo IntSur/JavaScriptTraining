@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 三种方法创建对象 */
+        /* 1.用字面量创建对象 */
+        var coco = {
+            name:'可可',
+            type:'阿拉斯加犬',
+            age: 5,
+            color: '棕红色',
+            bark: function() {
+                console.log('bark');
+            },
+            showFilm: function() {
+                console.log('showFilm');
+            }
+        }
+            /* 使用对象的三种方法 */
+            /* 1. */
+            console.log(coco.name);
+            /* 2. 对象名['属性名']*/
+            console.log(coco['type']);
+            /* 3. */
+            coco.bark();
+        /* 2.用new Obj声明对象 */
+        var coco = new Object();
+        coco.name = '可可';
+        coco.type = '阿拉斯加犬';
+        coco.age = 5;
+        coco.bark = function() {
+            console.log('bark');
+            return 1;
+        }
+        coco.bark();
+        console.log(coco.name);
+        console.log(coco['type']);
+        console.log(coco.bark());
+
+        /* 3.用构造函数创建对象 */
+        /* 构造函数的作用：一个个手动创建对象很累，对象之间的共同点存到构造函数中，
+        var 类名 = new 构造函数()；就能更方便地创建对象。 */
+        /* 1.构造函数名称以大写字母开头 */
+        /* 2.不用return */
+        /* 3.用构造函数声明新类时要加new */
+        /* 4.new Hero(）调用构造函数就创建一个对象 */
+        function Hero() {
+            this.Name = '后羿';
+            this.Type = '射手';
+            this.HP = 100;
+            this.Skill = function(){
+                console.log('射箭');
+            }
+        }
+
+        var HOUYI = new Hero();
+        console.log(HOUYI.Name);
+        HOUYI.Skill();
+
+        function Cpu(model, frequency, temperature) {
+            this.Model = model;
+            this.Frequency = frequency;
+            this.Temperature = temperature;
+            this.Calculate = function(action) {
+                var loginfor = 'The current cation is ' + action;
+                return loginfor;
+            }
+        }
+        var Intel12700k = new Cpu('12700k', '5100mhz', 23);
+        console.log(Intel12700k.Frequency);
+        console.log(Intel12700k.Calculate('*'));
+
+        /* 
+            new构造函数()时发生的四件事情：
+            1.创建一个新的空对象
+            2.this指向创建的空对象！！！
+            3.执行构造函数里的代码，给空对象添加属性和方法
+            4.返回对象
+        */
+
+        /* 遍历对象：for in */
+        var obj1 = {
+            a : 'a',
+            b : 'b',
+            c : 'c',
+        }
+        for(var k in obj1) {
+            console.log(k);
+            console.log(obj1[k]);
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

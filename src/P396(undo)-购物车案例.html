@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style></style>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            /* $("element").each()主要用于遍历元素 */
+            var colors = ["blue", "red", "green"];
+            /* .each()和隐式迭代的区别在于：each可以选择不同的元素进行修改 */
+            $("div").each(function(index, domEle) {
+                console.log(index);
+                console.log(domEle);// 返回原生DOM对象
+                $(domEle).css("color", colors[index]);
+            });
+
+            /* $.each($("element"), function(index, domEle){})主要用于遍历数据 */
+            $.each(colors, function(index, domEle) {
+                console.log(index);
+                console.log(domEle);
+            })
+            $.each({
+                name: "admin",
+                password: "admin",
+            },function(index, domEle) {
+                console.log(index);
+                console.log(domEle);
+            })
+        })
+    </script>
+</body>
+</html>

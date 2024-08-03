@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      position: absolute;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(0, 48, 126);
+      border-radius: 50%;
+      color: aqua;
+    }
+    button {
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button>移动到1194</button>
+  <button>移动到667</button>
+  <div></div>
+  <script>
+    var div1 = document.querySelector('div');
+    var btns = document.querySelectorAll('button');
+    
+    function animate(obj, destination, interval) {
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function() {
+        var turnsslow = (destination - obj.offsetLeft)/10;// Math.ceil消除了left非整数的问题
+        turnsslow = turnsslow > 0 ? Math.ceil(turnsslow) : Math.floor(turnsslow);
+        if(obj.offsetLeft == destination) {
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + turnsslow + 'px';
+      }, interval);
+    }
+
+    btns[0].addEventListener('click', function() {
+      animate(div1, 1194, 15);
+    })
+    btns[1].addEventListener('click', function() {
+      animate(div1, 612, 15);
+    })
+
+  </script>
+</body>
+</html>

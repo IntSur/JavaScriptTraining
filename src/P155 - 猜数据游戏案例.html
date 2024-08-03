@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        var printNum = 0;
+        var randomNum = getRandomInt(0, 10);
+        while (1) {
+            printNum = prompt('这个数是从0到10的，你认为这个数是？');
+            if(printNum < randomNum) {
+                alert('你猜小了');
+            } else if (printNum > randomNum) {
+                alert('你猜大了');
+            } else if (printNum == randomNum) {
+                alert('你猜对了');
+                break;
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

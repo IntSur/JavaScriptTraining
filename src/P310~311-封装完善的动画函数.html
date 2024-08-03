@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      position: absolute;
+      width: 100px;
+      height: 25px;
+      background-color: rgb(0, 48, 126);
+      color: aqua;
+    }
+    button {
+      margin: 20px auto;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <button>郑主任好</button>
+  <div>郑主任辛苦了</div>
+  <div>郑主任下班好</div>
+  <div>郑主任辛苦了</div>
+  <div>郑主任下班好</div>
+  <script>
+    var divs = document.querySelectorAll('div');
+    var btn = document.querySelector('button');
+
+    function animate(obj, destination, interval) {
+      //var timer1 = setInterval(moveToRight, 50); //问题1：当多个动画同时启用时，就同时创建了多个计时器。
+      clearInterval(obj.timer);//解决问题2：不加这行代码去点击按钮，触发动画效果时，动画是持续加速的，因为对同一个对象创建了很多个计时器。
+      obj.timer = setInterval(function() { // 解决问题1：创建对象属性的方式能占用相对较少的内存
+        if(obj.offsetLeft >= destination) {
+          clearInterval(obj.timer);
+        }
+        obj.style.left = obj.offsetLeft + 1 + 'px';
+      }, interval);
+    }
+
+    btn.addEventListener('click', function() {
+      animate(divs[0], 550, 5);
+      animate(divs[1], 660, 5);
+      animate(divs[2], 770, 4);
+      animate(divs[3], 880, 4);
+    })
+
+  </script>
+</body>
+</html>

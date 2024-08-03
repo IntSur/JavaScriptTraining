@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    div {
+      position: absolute;
+      left: 0px;
+      width: 30px;
+      height: 30px;
+      background-color: rgb(151, 241, 255);
+    }
+  </style>
+  <script src="animate.js"></script>
+</head>
+<body>
+  <div></div>
+  <script>
+    var div1 = document.querySelector('div');
+
+    div1.addEventListener('click', function () {
+      animate(div1, 800, 10, function turnDeeper(params) {
+        div1.style.backgroundColor = 'rgb(44, 195, 255)';
+        div1.style.transition = 'all 1s';
+      });
+    });
+  </script>
+</body>
+</html>

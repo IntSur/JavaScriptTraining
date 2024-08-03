@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 2200px;
+            border: 2px black solid;
+            margin: 20px;
+        }
+        span {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px black solid;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    <script>
+        $(function() {
+            /* 1.获取设置 相对于页面的偏移 */
+            console.log($("div").offset());
+            $("div").offset({
+                top: 300,
+                left: 400,
+            })
+            console.log($("div").offset().left);
+            console.log($("div").offset().top);
+            /* 2.获取 相对于具有定位的父元素的偏移 */
+            $("span").position();// 只能获取 不能设置
+            console.log($("span").position());
+            /* 3.获取设置 */
+            $(document).scrollTop();// 获取
+            $(window).scroll(function() {
+                console.log($(document).scrollTop());
+                $("span").text("返回顶部");
+            })
+            $("span").click(function() {
+                    $(document).scrollTop(0);// 设置
+                })
+            
+        })
+    </script>
+</body>
+</html>

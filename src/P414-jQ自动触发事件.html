@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <input type="text" value="triggerdemo">
+    <script>
+        $(function() {
+            $("div").on("click", function() {
+                console.log("div click触发");
+            })
+            /* 1.trigger() */
+            // $("div").trigger();// 参数为空则自动触发所有绑定的所有动作
+            $("div").trigger("click");// 参数为“事件类型”
+            $("input").trigger("focus");// 参数为“事件类型”
+            /* 2.triggerHandler() */
+            $("input").triggerHandler("focus");// triggerHandler不执行默认行为：input不闪烁光标
+            /* Tips: trigger和triggerHandler的区别：
+            trigger执行默认行为，triggerHandler不执行默认行为*/
+        })
+    </script>
+</body>
+</html>

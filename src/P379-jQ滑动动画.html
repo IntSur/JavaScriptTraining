@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 300px;
+            background-color: black;
+            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button class="Up">slideUp</button>
+    <button class="Down">slideDown</button>
+    <button class="Toggle">slideToggle</button>
+    <script>
+        $(function () {
+            /* slideUp(duration, easing , complete) */
+            $(".Up").click(function() {
+                $("div").slideUp(500);
+            })
+            $(".Down").click(function() {
+                $("div").slideDown(100);
+            })
+            $(".Toggle").click(function() {
+                $("div").slideToggle();
+            })
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>跳转到百度</button>
+    <script>
+        /* 最常用的location方法 */
+        console.log(window.location.href);
+        console.log(window.location.search);
+
+        /* location.href的应用：
+        点击按钮跳转到百度 */
+        var btn1 = document.querySelector('button');
+        btn1.addEventListener('click', jumpToBaidu);
+        function jumpToBaidu() {
+            console.log('received jump cmd');
+            window.location.href = 'https://www.baidu.com';
+            console.log(window.location.href);
+        }
+    </script>
+</body>
+</html>

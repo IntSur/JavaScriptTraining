@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.addEventListener('keydown', function(){console.log('键盘down');})
+        document.addEventListener('keypress', function(){console.log('键盘press');})// down和press的区别：不识别功能键、左右箭头、shift等
+        document.addEventListener('keyup', function(){console.log('键盘up');})
+
+        document.addEventListener('keydown', function(e){
+            console.log('你按下了' + e.key);
+            console.log('你按下键的ascii码是' + e.keyCode);
+        })// keydown、keyup不区分大小写 keypress区分大小写
+    </script>
+</body>
+</html>

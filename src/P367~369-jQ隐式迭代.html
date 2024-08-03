@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+    <div>div12345</div>
+    <div>div12345</div>
+    <div>div12345</div>
+    <div>div12345</div>
+    <div>div12345</div>
+    <ul>
+        <li>li12345</li>
+        <li>li12345</li>
+        <li>li12345</li>
+        <li>li12345</li>
+        <li>li12345</li>
+    </ul>
+    <div>
+        <span class="son">
+            <div></div>
+        </span>
+    </div>
+    <script>
+        /* 隐式迭代：jQ自动选中所有元素进行修改操作，简便地提高效率 */
+        $(function() {
+            $('div').css('background', 'blue');
+            $('ul li').css('color', 'red');     
+            
+            /* 筛选选择器 */
+            $('div:first').css('color', 'red');
+            $('div:last').css('color', 'blue');
+            $('div:eq(2)').css('color', 'green');
+            $('ul li:odd').css('color', 'red');
+            $('ul li:even').css('color', 'blue');
+
+            /* 用jQ方法选择元素 */
+            $(".son").parent();// 获取最近的那个父代
+            console.log($(".son").parent());
+            $(".son").children("div");// 查找最近子代里的div
+            console.log($(".son").children("div"));
+            $(".son").find("div");// 查找所有子代里的div
+            console.log($(".son").find("div"));
+            $("li").siblings();// 查找所有的兄弟节点
+            console.log($("li").siblings());
+            var index = 2;
+            $("div").eq("index").css("color", "skyblue");// 选取第index元素
+        })
+    </script> 
+</body>
+</html>

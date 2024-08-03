@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>tesla</button>
+    <button>apple</button>
+    <button>baidu</button>
+    <script>
+        var btns = document.querySelectorAll('button');
+        btns[0].addEventListener('click', assignJump);
+        btns[1].addEventListener('click', replaceJump);
+        btns[2].addEventListener('click', reloadWeb);
+
+        /* assign：记录历史记录，可以退回原始页面的跳转链接 */
+        function assignJump() {
+            location.assign('https://www.tesla.com');
+        }
+        /* replace：不记录历史记录，不可以退回原始页面的跳转链接 */
+        function replaceJump() {
+            location.replace('https://www.apple.com');
+        }
+        /* reload：重载 ,加true参数相当于清除缓存刷新（ctrl+F5）*/
+        function reloadWeb() {
+            location.reload(true);
+        }
+    </script>
+</body>
+</html>

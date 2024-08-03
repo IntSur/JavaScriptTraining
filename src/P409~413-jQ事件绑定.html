@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <ul>
+        <li>3</li>
+        <li>3</li>
+        <li>3</li>
+    </ul>
+    <script>
+        $(function() {
+            /* 绑定 */
+            /* 1.单个事件绑定 */
+            $("div:first").click(function () {
+                console.log('1.单个事件注册');
+            })
+            /* 2.on()同时绑定多个事件 */
+            /* 写法1 */
+            $("div:first").on("click mouseenter", function(){
+                console.log("2.on()同时绑定多个事件");
+            })
+            /* 写法2 */
+            $("div:last").on({
+                click:function() { console.log("2.click事件发生");},
+                mouseenter:function() { console.log("2.mouseenter事件发生");},
+            })
+            /* 3.on也可以实现事件委托 */
+            $("ul").on("click", "li:eq(0)", function() {
+                console.log("3.事件委托发生");
+            })
+            /* 4.可以给动态变量绑定事件 */
+            $("ul").on("click", "li", function(){
+                console.log("4.动态变量绑定事件发生");
+            })
+            $("ul").append($("<li>这是后来加上的div</li>"));
+
+            /* 解绑 */
+            $("div:first").off("click");
+            $("div:last").off("click mouseenter");
+            $("ul").off("click", "li:eq(0)");
+
+            /* 如果只想触发一次按键，就用one() */
+        })
+    </script>
+</body>
+</html>

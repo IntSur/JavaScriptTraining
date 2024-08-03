@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    div {
+      position: absolute;
+      left: 30px;
+      width: 100px;
+      height: 100px;
+      background-color: rgb(3, 90, 230);
+      border-radius: 50%;
+    }
+
+    button {
+      margin: 20px auto;
+      display: block;
+    }
+
+    div:hover {
+      box-shadow: 0px 0px 16px rgba(70, 70, 70, .8);
+    }
+  </style>
+</head>
+
+<body>
+  <button>移动到1194</button>
+  <button>移动到667</button>
+  <div></div>
+  <script>
+    var div1 = document.querySelector('div');
+    var btns = document.querySelectorAll('button');
+
+    function animate(obj, destination, interval, callback) {// callback就是回调函数，当作形参传入了函数中
+      clearInterval(obj.timer);
+      obj.timer = setInterval(function () {
+        var turnsslow = (destination - obj.offsetLeft) / 10;// Math.ceil消除了left非整数的问题
+        turnsslow = turnsslow > 0 ? Math.ceil(turnsslow) : Math.floor(turnsslow);
+        if (obj.offsetLeft == destination) {
+          clearInterval(obj.timer);
+          if (callback) {
+            callback();
+          }
+        }
+        obj.style.left = obj.offsetLeft + turnsslow + 'px';
+      }, interval);
+    }
+
+    btns[0].addEventListener('click', function () {
+      animate(div1, 1194, 15);
+    })
+    btns[1].addEventListener('click', function () {
+      animate(div1, 612, 15, function turnGreen() {
+        div1.style.backgroundColor = 'rgb(0, 46, 120)';
+        div1.style.transition = 'all 1s';
+      });
+    })
+
+  </script>
+</body>
+
+</html>

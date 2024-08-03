@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <video src=""></video>
+    <script>
+        /* $(function() {})相当于DOMContentLoaded */
+        $(function() {//$() = jQuery()
+            $('div').hide();
+        });
+
+        /* DOM对象只能用原生JS的方法，jQuery对象只能用jQuery的方法 */
+        $('div');// jQuery获取对象
+        console.log($('div'));
+        
+        /* DOM对象和jQuery对象之间的相互转换 */
+        /* DOM->jQuery:$('DOM对象') */
+        var video1 = document.querySelector('video');
+        $(video1);
+        console.log($(video1));
+        /* jQuery->DOM: 后面加个[i],或者.get(i)*/
+        $('video')[0].play();
+        console.log($('video')[0]);
+
+        /* jQuery选择器和CSS选择器语法一致 */
+        
+    </script>
+</body>
+</html>

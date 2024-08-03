@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        /* 复合型写法：简单属性和数字不用加双引号，复合属性用驼峰命名法 */
+        $("div").css({
+            width: 500,
+            height: 500,
+            backgroundColor: "red",
+        })
+    </script>
+</body>
+</html>

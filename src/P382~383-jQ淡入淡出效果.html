@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 300px;
+            margin: 50px auto;
+            background: #ccc;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button class="fadeIn">fadeIn</button>
+    <button class="fadeOut">fadeOut</button>
+    <button class="fadeToggle">fadeToggle</button>
+    <button class="fadeTo">fadeTo</button>
+    <button class="oemAnimate">oemAnimate</button>
+    <div></div>
+    <script>
+        /* 接口文档网站： https://www.jquery123.com/ */
+        $(function() {
+            $(".fadeIn").click(function() {
+                $("div").fadeIn();
+            })
+            $(".fadeOut").click(function() {
+                $("div").fadeOut();
+            })
+            $(".fadeToggle").click(function() {
+                $("div").fadeToggle();
+            })
+            $(".fadeTo").click(function() {
+                $("div").fadeTo(400, 0.5);
+            })
+            $(".oemAnimate").click(function() {
+                $("div").animate({
+                    left: 400,
+                    top: 400,
+                    opacity: 0.5,
+                    width: 300,
+                }, 500);
+            })
+        })
+
+    </script>
+</body>
+</html>

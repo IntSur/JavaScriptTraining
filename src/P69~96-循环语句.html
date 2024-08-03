@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* Tips */
+        /*F12 -> sources 可以添加断点 用断点查bug*/
+        /* for循环 */
+        var age = prompt('你今年几岁了？');
+        for(var i = 1; i <= age; i++) {
+            if(i == 1){
+                console.log('你出生了。🐣');
+            } else if(i == age) {
+                console.log('你今年'+ i +'岁了。');
+            } else {
+                console.log('你那时候'+ i +'岁。');
+            }
+        }
+
+        /* 求1-100的和 */
+        var sum = 0;
+        for(var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log('sum = '+ sum);
+
+        /* 求1-100的和的平均值 */
+        sum = 0;
+        var average = 0;
+        for(var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        average = sum / 100;
+        console.log('average = '+ average);
+
+        /* 求1-100之间奇数和偶数各自的和 */
+        var even = 0;//偶数
+        var odd = 0;//奇数
+        for(var i = 0; i <= 100; i++) {
+            if(i % 2 == 0) {
+                even += i;
+            } else {
+                odd += i;
+            }
+            console.log('1-100之间偶数之和 = '+ even);
+            console.log('1-100之间奇数之和 = '+ odd);
+        }  
+
+        /* 求1-100之间能被3整除的数的和 */
+        var multiples3 = 0;
+        for(var i = 0; i <= 100; i++) {
+            if(i % 3 == 0) {
+                multiples3 += i;
+            }
+        }
+        console.log('1-100之间能被3整除的数的和 = '+ multiples3);
+
+        /* while循环 */
+        var stringWhatUSay = '';
+        while (stringWhatUSay !== 'yes') {
+            stringWhatUSay = prompt('你想关掉窗口吗？');
+        }
+        alert('ok 关掉了。\n');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

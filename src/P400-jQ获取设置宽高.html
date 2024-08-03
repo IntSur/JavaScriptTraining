@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 2px black solid;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            /* 1.获取宽高 */
+            $("div").width();
+            $("div").height();
+            $("div").width(400);// 修改width值
+            /* 2.获取宽高 + padding */
+            $("div").innerWidth();
+            $("div").innerHeight();
+            /* 3.获取宽高 + padding + border */
+            $("div").outerWidth();
+            $("div").outerHeight();
+            /* 4.获取宽高 + padding + margin */
+            $("div").outerWidth(true);
+            $("div").outerHeight(true);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 新建数组的两种方式 */
+        /* 1.new */
+        var array1 = new Array();
+        /* 2.创建字面量读取 */
+        var array2 = [0 ,0.2 ,'4' ,true];
+        console.log(array2[2]);
+        console.log(array2.length);
+
+        /* 求一段数组的总和与平均数 */
+        var array3 = [5, 7, 9, 10, 23];
+        var sumOfArray3 = 0;
+        var averageOfArray3 = 0;
+        for(var i = 0; i < array3.length; i++) {
+            sumOfArray3 += array3[i];
+        }
+        averageOfArray3 = sumOfArray3/array3.length;
+        console.log(sumOfArray3 ,averageOfArray3);
+
+        /* 数组去重 */
+        var array4 = [12, 31, 22, 0, 12, 0, 23];
+        var array5 = [];
+        for (var index = 0; index < array4.length; index++) {
+            if(array4[index] != 0) {
+                array5[array5.length] = array4[index];
+            }
+        }
+        console.log(array5);
+
+        /* 冒泡排序：从小到大 */
+        var array6 = [1, 35, 25, -22, 145, 20];
+        for (var i = 0; i < array6.length - 1; i++) {/* 管排几个数到最后 */
+            for (var j = 0; j < array6.length - i -1; j++) {/* 管排到第几个数时对应要交换的次数 */
+                if(array6[j] > array6[j + 1]) {
+                    var temp = array6[j + 1];
+                    array6[j + 1] = array6[j];
+                    array6[j] = temp;
+                }
+            }
+        }
+        console.log(array6);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

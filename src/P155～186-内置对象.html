@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 内置对象是js已经封装好能直接用的对象。*/
+
+
+        /* 数学对象 */
+        /* Math不是一个构造器（构造函数），他的内置对象不需要new来创建 */
+        console.log(Math.PI);
+        console.log(Math.max(1, 2, 4));
+        console.log(Math.min(2, 41, 124));
+        console.log(Math.abs(-1));
+        console.log(Math.floor(1.6));/* 向下取整 */
+        console.log(Math.ceil(1.6));/* 向上取整 */
+        console.log(Math.ceil(-1.6));
+        console.log(Math.round(2.5));/* 四舍五入 */
+        console.log(Math.round(-2.5));/* 负数四舍五入往大取整 */
+        /* Math.random() */
+        /* 1.随机取值 */
+        console.log(Math.random());/* 不接收参数，只输出[0, 1)的浮点数 */
+        /* 2.在整数区间[10， 20]之间取一个随机整数 */
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandomInt(10, 20));
+        /* 3.随机点名 */
+        var array1 = ['jobs', 'kook', 'mask', 'van'];
+        console.log(array1[getRandomInt(0, array1.length - 1)]);
+
+
+        /* 日期对象 */
+        /* Date的内置对象需要new Date来创建 */
+        var date1 = new Date();
+        var date2 = new Date('1999-5-19 8:8:8');
+        var date3 = new Date(1999, 5, 19);
+        console.log(date1);/* 显示当前系统时间 */
+        console.log(date2);
+        console.log(date3);
+        /* 格式化输出年月日星期几 */
+        var date4 = new Date();
+        var year = date4.getFullYear();
+        var month = date4.getMonth() + 1;/* 月份是从0开始记 */
+        var date = date4.getDate();
+        var day = date4.getDay();/* 周日是0，周一到周六是1~6 */
+        var array2 = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thusday', 'Friday', 'Saturday'];
+        console.log('今天是' + year + '-' + month + '-' + date + '-' + array2[day]);
+        /* 精确到几时几分几秒，并自动补零 8:8:8 */
+        var hour = date4.getHours() < 10 ? '0' + date4.getHours() : date4.getHours();
+        var minute = date4.getMinutes() < 10 ? '0' + date4.getMinutes() : date4.getMinutes();
+        var seconds = date4.getSeconds() < 10 ? '0' + date4.getSeconds() : date4.getSeconds();
+        console.log(hour + ':' + minute + ':' + seconds);
+        /* 获取时间戳的三种方式 */
+        /* 1. */
+        var timer = new Date();
+        var timer1 = timer.getTime();
+        var timer2 = timer.valueOf();
+        /* 2. */
+        var timer3 = +new Date();
+        /* 3. */
+        var timer4 = Date.now();
+        /* 倒计时 */
+        function countDone(timeToStop) {
+            var timer5 = +new Date();
+            var timer6 = +new Date(timeToStop);
+            var timer7 = timer6 - timer5;
+            var day2 = parseInt(timer7 / 1000 / 60 / 60 / 24 % 365 < 0 ? '0' + timer7 / 1000 / 60 / 60 / 24 % 365 : timer7 / 1000 / 60 / 60 / 24 % 365)
+            var seconds2 = parseInt(timer7 / 1000 % 60 < 0 ? '0' + timer7 / 1000 % 60 : timer7 / 1000 % 60);
+            var minute2 = parseInt(timer7 / 1000 / 60 % 60 < 0 ? '0' + timer7 / 1000 / 60 % 60 : timer7 / 1000 / 60 % 60);
+            var hour2 = parseInt(timer7 / 1000 / 60 / 60 % 24 < 0 ? '0' + timer7 / 1000 / 60 / 60 % 24 : timer7 / 1000 / 60 / 60 % 24);
+            return day2 + ':' + hour2 + ':' + minute2 + ':' + seconds2 ;
+        }
+        console.log(countDone('2024-1-1 00:00:00'));
+
+
+
+        /* 数组对象 */
+        /* 创建数组的两种方式 */
+        /* 1. */
+        var array3 = [1, 2, 3];
+        /* 2. */
+        var array4 = new Array();
+        var array4 = new Array(2);/* 创建一个长度为2的空数组 */
+        var array4 = new Array(2, 3);/* 创建[2, 3]数组 */
+        console.log(array4);
+        /* 检测是不是数组的两种方法 */
+        /* 1. */
+        console.log(array4 instanceof Array);
+        /* 2.(H5后才支持) */
+        console.log(Array.isArray(array4));
+        /* 新增数组元素 */
+        array4.push(4);/* 在数组最后追加新元素 */
+        console.log(array4);
+        array4.unshift(1);/* 在数组头部追加新元素 */
+        console.log(array4);
+        /* 删除数组元素 */
+        array4.pop();/* 在数组最后删除一个元素 */
+        console.log(array4);
+        array4.shift();/* 在数组开头删除一个元素 */
+        console.log(array4);
+        /* 翻转数组 */
+        array4.reverse();
+        console.log(array4);
+        var array5 = [1, 9, 6, 8];
+        array5.sort();/* sort()接受一个比较函数，会修改原数组 */
+        console.log(array5);
+        var array6 = [23, 53, 2, 33];
+        array6.sort(function(a, b){
+                return a - b;/* a-b升序 b-a降序*/
+            }
+        )
+        console.log(array6);
+        /* 数组转化为字符串 */
+        array6.toString();
+        console.log(array6.toString());
+        array6.join('-');
+        console.log(array6.join('-'));
+        /* 查找数组索引 */
+        console.log(array6.indexOf(53));
+        console.log(array6.lastIndexOf(53));
+
+
+        /* 字符串对象 */
+        /* 基本包装类型 */
+        /* 对象 和 复杂数据类型 才有属性和方法 */
+        var str1 = 'string';
+        /* 为什么以上简单数据类型str能用length？
+        因为JS有基本包装类型：把简单数据类型包装成复杂数据类型。*/
+        /* 字符串不可变性：字符串指的是里面的值不变，看上去内容改变了但其实是地址变了，
+        内存中新开辟了一个内存空间。所以不要频繁拼接字符串，导致占用不必要的内存。 */
+        /* 查找字符串中元素的索引位置 */
+        var str2 = 'jdsfnjnsfsafjlj';
+        console.log(str2.indexOf('s'));
+        console.log(str2.indexOf('s', 3));//从3之后的位置开始找 包括3
+        /* 查找字符串中所有s出现的位置和次数 */
+        var num = 0;
+        var address = str2.indexOf('s');
+        while(address !== -1) {
+            console.log('s出现在index' + address);
+            num++;
+            address = str2.indexOf('s',address + 1);
+        }
+        console.log('出现次数是：' + num);
+        /* 根据索引返回字符 */
+        /* 1. */
+        str2.charAt(0);
+        console.log(str2.charAt(0));
+        /* 2. */
+        str2.charCodeAt(0);
+        console.log(str2.charCodeAt(0));
+        /* 3.H5开始支持 */
+        console.log(str2[0]);
+        /* 拼接字符串 */
+        console.log(str2.concat('拼接上的字符串'));
+        /* 截取字符串 */
+        console.log(str2.substr(4, 6));
+        /* 替换字符串 */
+        console.log(str2.replace('safjl','替换'));
+        /* 分割成数组 */
+        console.log(str2.split('s'));
+
+        /* 统计出现次数最多的字符 */
+        var obj2 = {};
+        var chars = '';
+        for(var i = 0; i < str2.length; i++){
+            chars = str2.charAt(i);
+            if(obj2[chars]) {
+                obj2[chars]++;
+            } else {
+                obj2[chars] = 1;
+            }
+        }
+        console.log(obj2);
+        var max = 0;
+        var maxk = 0;
+        for(var k in obj2) {
+            if(obj2[k] > max) {
+                max = obj2[k];
+                maxk = k;
+            }
+        }
+        console.log('最多出现的数是' + maxk + ' 出现了' + max + '次');
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

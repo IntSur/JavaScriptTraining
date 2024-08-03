@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 400px;
+            height: 30px;
+            margin: 50px auto;
+            border-bottom: 1px #000 solid;
+            position: relative;
+        }
+        #pwd {
+            width: 300px;
+            border: 0px;
+            outline: none;
+        }
+        #crossHair {
+            position: absolute;
+            right: 10px;
+        }
+        #div4 {
+            width: 300px;
+            height: 200px;
+            margin: 10px auto;
+            background-color: #000;
+        }
+        #shurukuang {
+            color: #999;
+        }
+        .div5 {
+            width: 90px;
+            height: 90px;
+            background-color:#000;
+            margin: 30px auto;
+        }
+        .div55 {
+            width: 90px;
+            height: 90px;
+            background-color: #999;
+            margin: 30px auto;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">Do not Press</button>
+    <button id="btn2">点击以更新时间</button>
+    <div id="div1">这里显示时间</div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+
+    <img id="model3" src="../../CSS/image/model3.jpeg" alt="">
+
+    <input id="input1" type="text" value="">
+    <button id="btn3">提交</button>
+
+    <div id="box">
+        <label for="">
+            <img src="../../CSS/image/crosshair.png" alt="" id="crossHair">
+        </label>
+        
+        <input type="password" id="pwd">
+    </div>
+
+    <div id="div4"> </div>
+
+    <input type="text" id="shurukuang" value="手机">
+
+    <div id="div5" class="div5"> </div>
+
+    <script>
+        /* 事件三要素：事件源 事件类型 事件处理程序 */
+        var btn1 = document.querySelector('#btn1'); // 1.事件源
+        btn1.onclick/* 2.onclick:事件类型 */ = function() {
+            alert('OK.Nothing happened.');
+        }// 3.function:事件处理程序
+
+        /* 改变元素内容 */
+        var btn2 = document.querySelector('#btn2');
+        var div1 = document.querySelector('#div1');
+        var div2 = document.querySelector('#div2');
+        btn2.onclick = function () {
+            div1.innerText = getDate();
+        }
+        
+        function getDate() {
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth();
+            var date = today.getDate();
+            var day = today.getDay();
+            var hour = today.getHours();
+            var minute = today.getMinutes();
+            var seconds = today.getSeconds();
+            return '今天是' + year + '-' + month + '-' + date + ' 星期' + day + ' ' + hour + ':' + minute + ':' + seconds;
+        }
+        /* 也可以省去事件类型这一步 */
+        var div2 = document.querySelector('#div2');
+        div2.innerText = getDate();
+
+        /* innerText和innerHTML的区别 */
+        var div3 = document.querySelector('#div3');
+        div3.innerText = '<strong>abc</strong>';//不识别html标签、空格、换行
+        div3.innerHTML = '<strong>abc</strong>';//识别html标签（最常用）
+        /* 共同点：都可以读写 */
+
+        /* 修改元素属性 */
+        var img1 = document.querySelector('#model3');
+        img1.onclick = function() {
+            img1.src = '../../CSS/image/modely.jpeg'
+        }
+        /* 修改表单元素属性（特殊） */
+        var btn3 = document.querySelector('#btn3');
+        var input1 = document.querySelector('#input1');
+        btn3.onclick = function() {
+            input1.value = '被点击了';
+            // btn3.disabled = true;
+            this.disabled = true;//常用this
+        }
+
+        /* 点击按钮切换密码可见 */
+        var PwdHideFlag = 1;
+        var crossHairBtn = document.querySelector('#crossHair');
+        var pwd = document.querySelector('#pwd')
+        crossHairBtn.onclick = function() {
+            if(PwdHideFlag == 1) {
+                this.src = '../../CSS/image/直线 1.png';
+                pwd.type = 'text';
+                PwdHideFlag = 0;                
+            } else {
+                this.src = '../../CSS/image/crosshair.png';
+                pwd.type = 'password';
+                PwdHideFlag = 1;
+            }
+        }
+
+        /* 用js修改元素效果 */
+        /* 1.用内联样式修改：*/
+            /* 1.element.style.backgroundColor */
+        var div4 = document.querySelector('#div4');
+        div4.onclick = function() {
+            this.style.backgroundColor = '#ccc';
+        }
+            /* 淘宝关闭二维码案例 P210 */
+
+            /* 2.element.style.backgroundPosition */
+            /* 循环精灵图案例 P211 */
+
+            /* 3.新的事件类型：element.onfocus/onblur */
+            /* 显示隐藏文本框案例 */
+        var shurukuang = document.querySelector('#shurukuang');
+        shurukuang.onfocus = function() {
+            if(this.value == '手机') {
+                this.value = '';
+                this.style.color = '#333';
+            };
+        }
+        shurukuang.onblur = function() {
+            if(this.value == '') {
+                this.value = '手机';
+                this.style.color = '#999'
+            } else {
+                this.style.color = '#999';
+            }
+        }
+        /* 2.用element.className更改元素属性 */
+        /* Tips: 会覆盖之前的类名 */
+        var div5 = document.querySelector('#div5');
+        div5.onclick = function() {
+            console.log('div55');
+            this.className = 'div55';
+            /* 如果要保留之前的类 className就用‘原类名 新类名’ */
+        }
+        /* element.value.length判断输入表单的字符长度 */
+        /* 密码框验证信息 */
+
+    </script>
+</body>
+</html>

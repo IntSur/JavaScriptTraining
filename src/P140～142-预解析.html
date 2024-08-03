@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* demo1 */
+        console.log(num);
+
+        /* demo2 */
+        var num = 2;
+        console.log(num);
+
+        /* demo3 */
+        fn();
+        function fn() {
+            console.log('11');
+        }
+
+        /* demo4 */
+        fun();
+        var fun = function() {
+            console.log('22');
+        }
+
+        /* js引擎运行分两步：预解析 代码执行
+            1、预解析：把所有声明var和function提到作用域最前面
+                预解析分为：
+                变量预解析（变量提升）：把所有变量声明提到作用域最前面 不提升赋值操作
+                函数预解析（函数提升）：把所有函数声明提到作用域最前面 不调用函数
+            2、代码执行：函数从上到下执行 */
+        /* var a = b = c = 9 相当于 var a = 9 ;b = 9;c = 9 */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

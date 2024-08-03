@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <img src="../../CSS/image/model3.jpeg" alt="广告">
+    <script>
+        /* setTimeout定时器：window.setTimeout(function, ms)
+        其中function一般称为回调函数*/
+        window.setTimeout(function () {
+            console.log('定时器1 happen');
+        }, 2000)//可以不写window
+
+        var timerO1 = window.setTimeout(fn1, 3000);
+        function fn1() {
+            console.log('timerO1 happen');
+        }
+
+        var img1 = document.querySelector('img');
+        setTimeout(fn2, 4000);
+        function fn2() {
+            img1.style.display = 'none';
+        }
+
+        /* 清除定时器：clearTimeout(ID) */
+        clearTimeout(timerO1);
+        
+        /* setInterval定时器：window.setInterval(function, ms) 
+        和setTimeout不同的是，它会每隔ms去重复执行*/
+        var timerI1 = window.setInterval(function () {
+            console.log('timerI1 happen');
+        }, 5000)
+
+        /* 清除定时器：clearInterval(ID) */
+        clearInterval(timerI1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 除Tips外的知识点 和其他语言基本一致 就不做记录了 */
+        /* Tips: */
+        /* 算术运算符 */
+        /* 不要用浮点数进行运算，结果有误差,浮点数相互比较时也会出现误差 */
+        console.log(0.1 + 0.2);
+        console.log(0.07 * 100);
+
+        /* 比较运算符 */
+        /* == 会默认把字符串型数据转换为数字型 */
+        console.log(18 == '18');//true
+        /* 全等 === 要求值和数据类型都一样*/
+        console.log(18 === '18');//false
+
+        /* 逻辑运算符 */
+        /* 逻辑与中断短路运算: 表达式1=真，返回表达式2；如表达式1=假，返回表达式1*/
+        console.log(123 && 456);//456
+        console.log(0 && 456);//0
+        console.log(123 && 0 && 142*345)//0
+        console.log(123 && '' && 142*345)//' '
+        //0 ' ' null undifined NaN 都视为假
+        /* 逻辑或断短路运算: 表达式1=真，返回表达式1；如表达式1=假，返回表达式2*/
+        console.log(123 || 456);//123
+        console.log(null || 0 || 123);//123
+        /* 表达式遭到逻辑中断后 右边的表达式都不会执行 */
+        var num = 10;
+        console.log(123 && num++ && null && num++);//null
+        console.log(num);//11
+        
+        /* 运算符等级 */
+        /* 1.一元运算符里面的逻辑非（！）优先级很高 */
+        /* 2.逻辑与比逻辑或优先级高 */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

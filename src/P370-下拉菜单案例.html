@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+        
+        .nav>li {
+            float: left;
+        }
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .nav ul {
+            display: none;
+        }
+    </style>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">基本</a>
+            <ul >
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">技能</a> 
+            <ul>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">作品</a>
+            <ul>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">社交媒体</a>
+            <ul>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(function() {
+            $(".nav>li").mousemove(function () {
+                $(this).children("ul").show();// 原生JS中的this要写成$(this)
+            })
+            $(".nav>li").mouseout(function () {
+                $(this).children("ul").hide();
+            })
+        })
+    </script>
+</body>
+</html>

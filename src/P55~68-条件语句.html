@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /* 除Tips外的知识点 和其他语言基本一致 就不做记录了 */
+        /* if */
+        /* demo */
+        var num1 = prompt('输入第一个数');
+        var num2 = prompt('输入第二个数');
+
+        if(num1 >= num2){
+            console.log('输入最大数为' + num1);
+        } else {
+            console.log('输入最大数为' + num2);
+        }
+
+        /* ? : */
+        /* demo */
+        var result = num1 >= 10 ? num1 : '0' + num1;
+        alert(result);
+
+        /* Switch */
+        /* Tips:必须是全等于===才能匹配上case */
+        switch (Number(num1)) {
+            case 10:
+                console.log(Number(num1));
+                break;
+            default:
+                break;
+        }
+        /* demo */
+        var fruit = prompt('输入你想查询的水果价格：')
+        switch (fruit) {
+            case '苹果':
+                alert('$5');
+                break;
+            case '香蕉':
+                alert('$8');
+                break;
+            default:
+                break;
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

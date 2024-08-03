@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: #ccc;
+            transition: all 0.5s;
+        }
+        .newclass {
+            width: 500px;
+            height: 500px;
+            background-color: #000;            
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        /* 1.新增类addClass */
+        $("div").click(function() {
+            // $(this).addClass("newclass");
+        })
+        /* 2.删除类removeClass */
+        $("div").click(function() {
+            // $(this).removeClass("newclass");
+        })
+        /* 3.多次点击切换类 */
+        $("div").click(function() {
+            $(this).toggleClass("newclass");
+        })
+        /* Tips：JS原生类操作用的是className，该方法会影响原来的类
+        而用jQ的add remove toggle则不影响 相当于是在原先基础上追加类名 */
+    </script>
+</body>
+</html>

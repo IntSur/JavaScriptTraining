@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var studentsNum = Number(prompt('班级里一共有多少人？'));
+        var studentsScore = 0;
+        var totalScore = 0;
+        var averageScore = 0;
+        for(var i = 1; i <= studentsNum; i++) {
+            studentsScore = Number(prompt('第'+ i + '位学生的成绩是：'));
+            totalScore += studentsScore;
+        }
+        console.log('班级总成绩是:'+ totalScore);
+        averageScore = totalScore / studentsNum;
+        console.log('班级平均分是:'+ averageScore);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style-type: none;
+        }
+        
+        .nav>li {
+            float: left;
+            position: relative;
+            width: 80px;
+            height: 41px;
+            text-align: center;
+        }
+        a {
+            text-decoration: none;
+            font-size: 14px;
+            color: black;
+        }
+        .nav ul {
+            display: none;
+        }
+        .sonnav li {
+            text-align: center;            
+        }
+    </style>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="">基本</a>
+            <ul class="sonnav">
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">技能</a> 
+            <ul class="sonnav">
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">作品</a>
+            <ul class="sonnav">
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+        <li>
+            <a href="">社交媒体</a>
+            <ul class="sonnav">
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+                <li>文案</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        $(function() {
+            /* 写法1 */
+            // $(".nav>li").mouseover(function () {
+            //     $(this).children("ul").slideDown();
+            // })
+            // $(".nav>li").mouseout(function () {
+            //     $(this).children("ul").slideUp();
+            // })
+
+            /* 写法2 */
+            // $(".nav>li").hover(function() {
+            //     $(this).children("ul").slideDown();
+            // }, function () {
+            //     $(this).children("ul").slideUp();                
+            // })
+
+            /* 写法3 */
+            $(".nav>li").hover(function() {
+                $(this).children("ul").stop().slideToggle();// stop的作用：停止动画。放在动画之前的目的：多个动画同时被触发时，停止被触发的动画，执行最后一个动画。
+            })
+        })
+    </script>
+</body>
+</html>

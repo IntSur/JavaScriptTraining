@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div1 = document.querySelector('div');
+        var timer = 5;
+        
+        changeDivInf();// 消除首次加载网页时的空白
+        window.setInterval(changeDivInf, 1000);
+        function changeDivInf() {
+            div1.innerHTML = '该页面将在' + timer + '秒后进行跳转';
+            console.log(timer);
+            timer--;
+            if(timer == 0) {
+                jumpToBaidu();
+            }
+        }
+        function jumpToBaidu() {
+            window.location.href = 'https://www.baidu.com';
+        }       
+    </script>
+</body>
+</html>

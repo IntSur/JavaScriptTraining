@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>搜索</button>
+    <script>
+        /* 按s键自动聚焦到搜索框 */
+        var searchinput = document.querySelector('input');
+        document.addEventListener('keyup', function(e) {//keydown会让s也写进去
+            if(e.key === 's') {
+                searchinput.focus();
+            }
+        })
+
+        /* 京东快递单号 */
+    </script>
+</body>
+</html>

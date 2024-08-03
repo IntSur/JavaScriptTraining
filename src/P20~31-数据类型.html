@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P20~21-数据类型</title>
+    <script>
+        //不同于C和java，js是弱语言。只有在变量被使用时，变量的数据类型才会被确定。
+        var a;//没确定
+        var a = 'character';//已确定
+        //js可以改变同一变量的数据类型。
+        a = 123;
+
+        // 简单数据类型
+        var a1 = 12;
+        var a2 = true;
+        var a3 = '字符串';
+        var a4 = undefined;//var a;只声明不赋值就会显示undefined
+        var a5 = null;//var a = null;声明了a为空值
+        // var a = 010;//八进制
+        var a = 0x0a;//十六进制
+        
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        console.log(Infinity);
+        console.log(-Infinity);
+        console.log(NaN);
+
+        //字符串
+        alert('DemoString1\nDemoString2\n"DemoString3"');
+        var someString1 = 'DemoString.length'
+        var someString2 = 'is'
+        
+        console.log(someString1.length);
+        console.log('字符'+'串'+'拼接');
+
+        var someStringLength = (someString1 + someString2).length
+        console.log(someStringLength);
+
+        //年龄案例
+        var age = prompt('Press in your age:');
+        console.log(age);
+        alert('Your age is ' + age);
+
+        //布尔型
+        var someBoolean = true;
+        console.log(someBoolean + 1);// = 2
+
+        //undefined
+        var Variable = undefined;
+        console.log(Variable + 'string');//undefined和字符串相加 = 字符串
+        console.log(Variable + 123);//undefined和数字相加 = NaN(Not a number)
+
+        //null
+        var nullVaribale = null;
+        console.log(nullVaribale + 'string');//null和string相加 视为空值
+        console.log(nullVaribale + 123);//null和数字相加 视为空值
+        
+        console.log(typeof a1);
+        console.log(typeof a2);
+        console.log(typeof a3);
+        console.log(typeof a4);
+        console.log(typeof a5);//null是object类型
+
+        // tip:prompt取进来的值都是string类型
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jQuery.js"></script>
+</head>
+<body>
+    <div></div>
+    <script>
+        $(function() {
+            /* 1.新建元素 */
+            var newspan = $("<span>新建出来的一个span</span>");
+            /* 2.内部添加元素 */
+            $("div").append(newspan);// 结尾
+            $("div").prepend(newspan);// 开头
+            /* 3.外部添加元素 */
+            $("div").before(newspan);
+            $("div").after(newspan);
+            /* 3.删除元素 */
+            $("span").remove();// 删除该元素
+            $("div").empty();// 删除元素里的子节点
+            $("div").html("");// 删除元素里匹配到的子节点
+        })
+    </script>
+</body>
+</html>
